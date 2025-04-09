@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import SocialIcons from './SocialIcons';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { Instagram, Linkedin, Twitter, Facebook, MessageSquare, Phone, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const ContactSection = () => {
@@ -21,6 +21,34 @@ const ContactSection = () => {
     // Reset form
     (e.target as HTMLFormElement).reset();
   };
+
+  const socialMediaAccounts = [
+    {
+      icon: <Instagram className="h-5 w-5 text-white" />,
+      text: "@kwenamolotoaisolutions",
+      platform: "Instagram"
+    },
+    {
+      icon: <Linkedin className="h-5 w-5 text-white" />,
+      text: "@kwenamolotoaisolutions",
+      platform: "LinkedIn"
+    },
+    {
+      icon: <Twitter className="h-5 w-5 text-white" />,
+      text: "@kwenamolotoaisolutions",
+      platform: "Twitter"
+    },
+    {
+      icon: <Facebook className="h-5 w-5 text-white" />,
+      text: "@kwenamolotoaisolutions",
+      platform: "Facebook"
+    },
+    {
+      icon: <MessageSquare className="h-5 w-5 text-white" />,
+      text: "@kwenamolotoaisolutions",
+      platform: "TikTok"
+    }
+  ];
 
   return (
     <section id="contact" className="py-20 px-4 md:px-8">
@@ -95,11 +123,11 @@ const ContactSection = () => {
               <ul className="space-y-6">
                 <li className="flex items-start">
                   <div className="bg-blue-gradient rounded-full p-3 mr-4">
-                    <MapPin className="h-5 w-5 text-white" />
+                    <Mail className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Office Location</h4>
-                    <p className="text-kwena-dark-gray">123 AI Innovation Center, Tech Park, Johannesburg, South Africa</p>
+                    <h4 className="font-semibold mb-1">Email Us</h4>
+                    <p className="text-kwena-dark-gray">kwenamolotoai@gmail.com</p>
                   </div>
                 </li>
                 
@@ -109,18 +137,22 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Call Us</h4>
-                    <p className="text-kwena-dark-gray">+27 12 345 6789</p>
+                    <p className="text-kwena-dark-gray">+27 71 796 3515</p>
                   </div>
                 </li>
                 
-                <li className="flex items-start">
-                  <div className="bg-blue-gradient rounded-full p-3 mr-4">
-                    <Mail className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Email Us</h4>
-                    <p className="text-kwena-dark-gray">info@kwenamoloto.ai</p>
-                  </div>
+                <li>
+                  <h4 className="font-semibold mb-3">Find Us On Social Media</h4>
+                  <ul className="space-y-3">
+                    {socialMediaAccounts.map((account, index) => (
+                      <li key={index} className="flex items-center">
+                        <div className="bg-blue-gradient rounded-full p-2 mr-3">
+                          {account.icon}
+                        </div>
+                        <span className="text-kwena-dark-gray">{account.text}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
               </ul>
             </div>

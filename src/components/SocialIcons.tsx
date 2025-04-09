@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Twitter, Github } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Twitter, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type SocialIconProps = {
@@ -40,10 +40,10 @@ const SocialIcons = ({
       color: 'text-[#1877F2] hover:bg-[#1877F2]/10' 
     },
     { 
-      name: 'GitHub', 
-      Icon: Github, 
-      url: 'https://github.com', 
-      color: 'text-[#333] hover:bg-[#333]/10' 
+      name: 'WhatsApp', 
+      Icon: MessageSquare, 
+      url: 'https://whatsapp.com', 
+      color: 'text-[#25D366] hover:bg-[#25D366]/10' 
     }
   ];
 

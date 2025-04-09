@@ -10,21 +10,18 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-radial from-kwena-light-blue/10 to-transparent -z-10" />
       
       <div className="max-w-3xl mx-auto text-center space-y-8 animate-fade-in">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient">
-          Kwena Moloto AI Solutions
-        </h1>
+        <div className="flex justify-center">
+          <img 
+            src="/lovable-uploads/527dee8c-d2fb-442f-b193-ba606711c428.png" 
+            alt="Kwena Moloto A.I Solutions Logo" 
+            className="max-w-full h-auto w-80 md:w-96"
+          />
+        </div>
         
         <div className="glass-card rounded-xl p-6 md:p-8 max-w-2xl mx-auto">
-          <blockquote className="text-lg md:text-xl space-y-4">
-            <p>
-              "My name is Kwena M., Founder of Kwena Moloto AI Solutions.💼 
-              I assist high performance companies leverage A.I technology.💰 
-              Contact me now to discover how my solutions can transform your business.💪🏼"
-            </p>
-            <footer className="text-sm text-kwena-dark-gray">
-              - Kwena Moloto, Founder
-            </footer>
-          </blockquote>
+          <p className="text-lg md:text-xl">
+            Ready to transform your business with AI? Get in touch with us today to discover how our solutions can drive growth and innovation.
+          </p>
         </div>
         
         <div className="flex flex-wrap justify-center gap-4 pt-6">

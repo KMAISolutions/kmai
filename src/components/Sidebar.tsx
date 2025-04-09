@@ -58,7 +58,7 @@ const Sidebar = () => {
       <Button
         variant="ghost"
         size="icon"
-        className="fixed top-4 right-4 z-50 bg-white/70 backdrop-blur-md shadow-md lg:hidden"
+        className="fixed top-4 right-4 z-50 bg-white/70 backdrop-blur-md shadow-md lg:block"
         onClick={toggleSidebar}
       >
         {isOpen ? <X className="h-6 w-6 text-kwena-blue" /> : <Menu className="h-6 w-6 text-kwena-blue" />}
@@ -75,12 +75,12 @@ const Sidebar = () => {
       {/* Sidebar */}
       <div
         className={cn(
-          "fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out lg:translate-x-0",
-          isOpen ? "translate-x-0" : "translate-x-full lg:relative lg:w-60 lg:min-h-screen lg:flex lg:flex-col"
+          "fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out lg:translate-x-0",
+          isOpen ? "translate-x-0" : "-translate-x-full lg:relative lg:w-60 lg:min-h-screen lg:flex lg:flex-col"
         )}
       >
         <div className="p-6 flex justify-between items-center border-b border-gray-200">
-          <h2 className="text-xl font-bold text-gradient">Kwena AI</h2>
+          <h2 className="text-xl font-bold text-gradient">Kwena M A.I</h2>
           <Button
             variant="ghost"
             size="icon"
