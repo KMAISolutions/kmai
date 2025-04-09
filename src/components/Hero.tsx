@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import AnimatedWordCycleDemo from '@/components/AnimatedWordCycleDemo';
 
 const Hero = () => {
   return (
@@ -17,6 +18,8 @@ const Hero = () => {
             className="max-w-full h-auto w-auto md:w-auto"
           />
         </div>
+        
+        <AnimatedWordCycleDemo />
         
         <div className="glass-card rounded-xl p-6 md:p-8 max-w-2xl mx-auto">
           <p className="text-lg md:text-xl">
