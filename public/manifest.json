@@ -1,0 +1,22 @@
+
+{
+  "name": "Kwena Moloto AI Solutions",
+  "short_name": "Kwena AI",
+  "description": "Advanced AI Solutions for High-Performance Companies",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#33C3F0",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
