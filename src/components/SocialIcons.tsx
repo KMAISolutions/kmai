@@ -18,31 +18,31 @@ const SocialIcons = ({
     { 
       name: 'LinkedIn', 
       Icon: Linkedin, 
-      url: 'https://linkedin.com', 
+      url: 'https://www.linkedin.com/in/kwena-moloto-7398b6165?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', 
       color: 'text-[#0077B5] hover:bg-[#0077B5]/10' 
     },
     { 
       name: 'Twitter', 
       Icon: Twitter, 
-      url: 'https://twitter.com', 
+      url: 'https://x.com/KwenaMolotoAI?t=7vZ3n19HJpHByDOWxgJ6og&s=09', 
       color: 'text-[#1DA1F2] hover:bg-[#1DA1F2]/10' 
     },
     { 
       name: 'Instagram', 
       Icon: Instagram, 
-      url: 'https://instagram.com', 
+      url: 'https://www.instagram.com/kwenamolotoaisolutions?igsh=NDQyOXBxNGV3dTNs', 
       color: 'text-[#E4405F] hover:bg-[#E4405F]/10' 
     },
     { 
       name: 'Facebook', 
       Icon: Facebook, 
-      url: 'https://facebook.com', 
+      url: 'https://www.facebook.com/share/18v351jrX7/', 
       color: 'text-[#1877F2] hover:bg-[#1877F2]/10' 
     },
     { 
       name: 'WhatsApp', 
       Icon: MessageSquare, 
-      url: 'https://whatsapp.com', 
+      url: 'https://wa.me/message/TBLT6QBYPK3SE1', 
       color: 'text-[#25D366] hover:bg-[#25D366]/10' 
     }
   ];

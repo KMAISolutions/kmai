@@ -14,7 +14,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <div className="w-full">
+      <div className="w-full flex justify-center">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

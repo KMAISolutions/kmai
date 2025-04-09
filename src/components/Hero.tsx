@@ -12,9 +12,9 @@ const Hero = () => {
       <div className="max-w-3xl mx-auto text-center space-y-8 animate-fade-in">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/527dee8c-d2fb-442f-b193-ba606711c428.png" 
+            src="/lovable-uploads/dd7673c6-7d95-4322-9cd3-950eda5b5dfb.png" 
             alt="Kwena Moloto A.I Solutions Logo" 
-            className="max-w-full h-auto w-80 md:w-96"
+            className="max-w-full h-auto w-auto md:w-auto"
           />
         </div>
         

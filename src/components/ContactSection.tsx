@@ -1,54 +1,50 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import SocialIcons from './SocialIcons';
-import { Instagram, Linkedin, Twitter, Facebook, MessageSquare, Phone, Mail } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    toast({
-      title: "Message Sent",
-      description: "Thank you for your message. We will get back to you shortly.",
-    });
+    setIsSubmitting(true);
     
-    // Reset form
-    (e.target as HTMLFormElement).reset();
-  };
-
-  const socialMediaAccounts = [
-    {
-      icon: <Instagram className="h-5 w-5 text-white" />,
-      text: "@kwenamolotoaisolutions",
-      platform: "Instagram"
-    },
-    {
-      icon: <Linkedin className="h-5 w-5 text-white" />,
-      text: "@kwenamolotoaisolutions",
-      platform: "LinkedIn"
-    },
-    {
-      icon: <Twitter className="h-5 w-5 text-white" />,
-      text: "@kwenamolotoaisolutions",
-      platform: "Twitter"
-    },
-    {
-      icon: <Facebook className="h-5 w-5 text-white" />,
-      text: "@kwenamolotoaisolutions",
-      platform: "Facebook"
-    },
-    {
-      icon: <MessageSquare className="h-5 w-5 text-white" />,
-      text: "@kwenamolotoaisolutions",
-      platform: "TikTok"
+    try {
+      // Form data
+      const formData = new FormData(e.target as HTMLFormElement);
+      const formValues = Object.fromEntries(formData.entries());
+      
+      // You would typically use a service like EmailJS or a backend API here
+      // For now, we'll simulate sending an email
+      console.log("Sending email to kwenamolotoai@gmail.com with content:", formValues);
+      
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast({
+        title: "Message Sent",
+        description: "Thank you for your message. We will get back to you shortly.",
+      });
+      
+      // Reset form
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-  ];
+  };
 
   return (
     <section id="contact" className="py-20 px-4 md:px-8">
@@ -70,6 +66,7 @@ const ContactSection = () => {
                   <label htmlFor="name" className="text-sm font-medium">Name</label>
                   <Input 
                     id="name" 
+                    name="name"
                     placeholder="Your Name" 
                     required 
                     className="border-kwena-blue/20 focus:border-kwena-blue focus:ring-kwena-blue"
@@ -79,6 +76,7 @@ const ContactSection = () => {
                   <label htmlFor="email" className="text-sm font-medium">Email</label>
                   <Input 
                     id="email" 
+                    name="email"
                     type="email" 
                     placeholder="your.email@example.com" 
                     required 
@@ -91,6 +89,7 @@ const ContactSection = () => {
                 <label htmlFor="subject" className="text-sm font-medium">Subject</label>
                 <Input 
                   id="subject" 
+                  name="subject"
                   placeholder="How can we help you?" 
                   required 
                   className="border-kwena-blue/20 focus:border-kwena-blue focus:ring-kwena-blue"
@@ -101,17 +100,20 @@ const ContactSection = () => {
                 <label htmlFor="message" className="text-sm font-medium">Message</label>
                 <Textarea 
                   id="message" 
+                  name="message"
                   placeholder="Tell us about your project or inquiry..." 
                   required 
                   className="min-h-32 border-kwena-blue/20 focus:border-kwena-blue focus:ring-kwena-blue"
                 />
+                <input type="hidden" name="recipient" value="kwenamolotoai@gmail.com" />
               </div>
               
               <Button 
                 type="submit" 
                 className="w-full bg-blue-gradient text-white border-none shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
           </div>
@@ -139,20 +141,6 @@ const ContactSection = () => {
                     <h4 className="font-semibold mb-1">Call Us</h4>
                     <p className="text-kwena-dark-gray">+27 71 796 3515</p>
                   </div>
-                </li>
-                
-                <li>
-                  <h4 className="font-semibold mb-3">Find Us On Social Media</h4>
-                  <ul className="space-y-3">
-                    {socialMediaAccounts.map((account, index) => (
-                      <li key={index} className="flex items-center">
-                        <div className="bg-blue-gradient rounded-full p-2 mr-3">
-                          {account.icon}
-                        </div>
-                        <span className="text-kwena-dark-gray">{account.text}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </li>
               </ul>
             </div>
