@@ -26,12 +26,12 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-background w-full max-w-screen-2xl mx-auto">
+    <div className="flex min-h-screen bg-background overflow-hidden w-full">
       {/* Sidebar */}
       <Sidebar />
       
       {/* Main Content */}
-      <main className="flex-grow lg:ml-60 w-full">
+      <main className="flex-grow lg:ml-60 w-full overflow-x-hidden">
         <div className="fixed bottom-4 left-4 z-30 lg:hidden">
           <SocialIcons 
             vertical 

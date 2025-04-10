@@ -2,7 +2,11 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, X } from 'lucide-react';
-import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
+import { 
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogTrigger
+} from '@/components/ui/alert-dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 type ProjectCardProps = {
@@ -41,10 +45,8 @@ const projects: ProjectWithCaseStudy[] = [
 ];
 
 const ProjectCard = ({ title, description, image, category, caseStudy }: ProjectWithCaseStudy) => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <>
+    <AlertDialog>
       <div className="group glass-card rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
         <div className="h-48 overflow-hidden">
           <img 
@@ -59,59 +61,58 @@ const ProjectCard = ({ title, description, image, category, caseStudy }: Project
           </span>
           <h3 className="text-xl font-semibold mb-2">{title}</h3>
           <p className="text-kwena-dark-gray text-sm mb-4">{description}</p>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-kwena-blue hover:text-kwena-dark-blue hover:bg-kwena-blue/10 p-0 flex items-center group"
-            onClick={() => setIsOpen(true)}
-          >
-            <span>View Case Study</span>
-            <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Button>
+          <AlertDialogTrigger asChild>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-kwena-blue hover:text-kwena-dark-blue hover:bg-kwena-blue/10 p-0 flex items-center group"
+            >
+              <span>View Case Study</span>
+              <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Button>
+          </AlertDialogTrigger>
         </div>
       </div>
 
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-3xl max-h-[90vh] p-0 overflow-hidden">
-          <div className="flex flex-col h-full">
-            <div className="relative h-64 overflow-hidden">
-              <img 
-                src={image} 
-                alt={title}
-                className="w-full h-full object-cover" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <DialogClose className="absolute top-4 right-4 rounded-full bg-black/40 backdrop-blur-sm text-white p-2 hover:bg-black/60 transition-colors">
-                <X className="h-5 w-5" />
-              </DialogClose>
-              <div className="absolute bottom-0 left-0 p-6 text-white">
-                <span className="inline-block px-3 py-1 bg-kwena-blue/80 text-white text-xs font-semibold rounded-full mb-2">
-                  {category}
-                </span>
-                <h2 className="text-2xl font-bold">{title}</h2>
-              </div>
+      <AlertDialogContent className="max-w-3xl max-h-[90vh] p-0 overflow-hidden">
+        <div className="flex flex-col h-full">
+          <div className="relative h-64 overflow-hidden">
+            <img 
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            <button className="absolute top-4 right-4 rounded-full bg-black/40 backdrop-blur-sm text-white p-2 hover:bg-black/60 transition-colors">
+              <X className="h-5 w-5" />
+            </button>
+            <div className="absolute bottom-0 left-0 p-6 text-white">
+              <span className="inline-block px-3 py-1 bg-kwena-blue/80 text-white text-xs font-semibold rounded-full mb-2">
+                {category}
+              </span>
+              <h2 className="text-2xl font-bold">{title}</h2>
             </div>
-            
-            <ScrollArea className="flex-grow p-6">
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold">Case Study</h3>
-                {caseStudy.split('\n\n').map((paragraph, idx) => (
-                  <p key={idx} className="text-kwena-dark-gray">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </ScrollArea>
           </div>
-        </DialogContent>
-      </Dialog>
-    </>
+          
+          <ScrollArea className="flex-grow p-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">Case Study</h3>
+              {caseStudy.split('\n\n').map((paragraph, idx) => (
+                <p key={idx} className="text-kwena-dark-gray">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </ScrollArea>
+        </div>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 };
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio" className="py-20 px-4 md:px-8 bg-gradient-radial from-kwena-light-blue/5 to-transparent overflow-hidden">
+    <section id="portfolio" className="py-20 px-4 md:px-8 bg-gradient-radial from-kwena-light-blue/5 to-transparent">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">Our Portfolio</h2>
