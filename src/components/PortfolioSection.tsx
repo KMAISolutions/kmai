@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import Slideshow from './Slideshow';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, X } from 'lucide-react';
 import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
