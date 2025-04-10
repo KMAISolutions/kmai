@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, X } from 'lucide-react';
 import { 
@@ -47,21 +47,21 @@ const projects: ProjectWithCaseStudy[] = [
 const ProjectCard = ({ title, description, image, category, caseStudy }: ProjectWithCaseStudy) => {
   return (
     <AlertDialog>
-      <div className="group glass-card rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-        <div className="h-48 overflow-hidden">
-          <img 
-            src={image} 
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-          />
-        </div>
-        <div className="p-6">
-          <span className="inline-block px-3 py-1 bg-kwena-light-blue/10 text-kwena-blue text-xs font-semibold rounded-full mb-3">
-            {category}
-          </span>
-          <h3 className="text-xl font-semibold mb-2">{title}</h3>
-          <p className="text-kwena-dark-gray text-sm mb-4">{description}</p>
-          <AlertDialogTrigger asChild>
+      <AlertDialogTrigger asChild>
+        <div className="group glass-card rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+          <div className="h-48 overflow-hidden">
+            <img 
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+            />
+          </div>
+          <div className="p-6">
+            <span className="inline-block px-3 py-1 bg-kwena-light-blue/10 text-kwena-blue text-xs font-semibold rounded-full mb-3">
+              {category}
+            </span>
+            <h3 className="text-xl font-semibold mb-2">{title}</h3>
+            <p className="text-kwena-dark-gray text-sm mb-4">{description}</p>
             <Button
               variant="ghost"
               size="sm"
@@ -70,9 +70,9 @@ const ProjectCard = ({ title, description, image, category, caseStudy }: Project
               <span>View Case Study</span>
               <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
-          </AlertDialogTrigger>
+          </div>
         </div>
-      </div>
+      </AlertDialogTrigger>
 
       <AlertDialogContent className="max-w-3xl max-h-[90vh] p-0 overflow-hidden">
         <div className="flex flex-col h-full">
@@ -83,9 +83,9 @@ const ProjectCard = ({ title, description, image, category, caseStudy }: Project
               className="w-full h-full object-cover" 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-            <button className="absolute top-4 right-4 rounded-full bg-black/40 backdrop-blur-sm text-white p-2 hover:bg-black/60 transition-colors">
+            <AlertDialog.Close className="absolute top-4 right-4 rounded-full bg-black/40 backdrop-blur-sm text-white p-2 hover:bg-black/60 transition-colors">
               <X className="h-5 w-5" />
-            </button>
+            </AlertDialog.Close>
             <div className="absolute bottom-0 left-0 p-6 text-white">
               <span className="inline-block px-3 py-1 bg-kwena-blue/80 text-white text-xs font-semibold rounded-full mb-2">
                 {category}
@@ -112,7 +112,7 @@ const ProjectCard = ({ title, description, image, category, caseStudy }: Project
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio" className="py-20 px-4 md:px-8 bg-gradient-radial from-kwena-light-blue/5 to-transparent">
+    <section id="portfolio" className="py-20 px-4 md:px-8 bg-gradient-radial from-kwena-light-blue/5 to-transparent overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">Our Portfolio</h2>

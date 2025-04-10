@@ -31,7 +31,7 @@ const Index = () => {
       <Sidebar />
       
       {/* Main Content */}
-      <main className="flex-grow lg:ml-60 w-full overflow-x-hidden">
+      <main className="flex-grow lg:ml-60 w-full overflow-hidden">
         <div className="fixed bottom-4 left-4 z-30 lg:hidden">
           <SocialIcons 
             vertical 
