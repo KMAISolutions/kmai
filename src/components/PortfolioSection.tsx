@@ -111,7 +111,7 @@ const ProjectCard = ({ title, description, image, category, caseStudy }: Project
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio" className="py-20 px-4 md:px-8 bg-gradient-radial from-kwena-light-blue/5 to-transparent">
+    <section id="portfolio" className="py-20 px-4 md:px-8 bg-gradient-radial from-kwena-light-blue/5 to-transparent overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">Our Portfolio</h2>
